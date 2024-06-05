@@ -1,0 +1,54 @@
+---
+import HtmlIcon from "./icons/Html.astro";
+import CssIcon from "./icons/Css.astro";
+
+const TAGS = {
+  HTML:{
+    name: "HTML",
+    class: "bg-[#FF5733] text-white",
+    icon: HtmlIcon,
+  },
+  CSS:{
+    name: "CSS",
+    class: "bg-[#2965f1] text-white",
+    icon: CssIcon,
+  }
+}
+
+const PROJECTS = [
+  {
+    title: "Bienes Raices",
+    description:
+      "Como mi primer proyecto después de salir del instituto, desarrollé una página web de bienes raíces utilizando HTML y CSS. Este proyecto incluyó cutro vistas principales y me permitió aplicar y expandir mis conocimientos en desarrollo web.",
+    link: "#",
+    github: "#",
+    image: "../projects/BR.png",
+    tags: [TAGS.HTML, TAGS.CSS],
+  },
+];
+---
+
+{
+  PROJECTS.map(({ image, title, description, tags }) => (
+    <article>
+      <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map((tag) => (
+          <li>
+            <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+            </li>
+        ))}
+      </ul>
+      <img
+        class="rounded shadow-2xl shadow-white/10"
+        src={image}
+        title="Bienes Raices"
+        alt={`Proyecto - Bienes Raices ${image}`}
+      />
+    </article>
+  ))
+}

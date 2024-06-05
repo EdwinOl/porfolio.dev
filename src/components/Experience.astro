@@ -1,0 +1,33 @@
+---
+import { date, literal } from "astro/zod";
+import ExperienceItem from "./ExperienceItem.astro";
+import type { ActionError, ActionInputError } from "astro:actions";
+import type { Code, Debug } from "astro:components";
+
+const EXPERIENCE = [
+  {
+    date: "Agosto 2022 - Actualmente...",
+    title: "Analista Operativo y Sistema",
+    description:
+      "Actualización y mantenimiento de páginas web en WordPress, incluyendo la gestión de contenido, actualización de plugin, temas y resolución de incidencias técnicas.",
+    description2:
+      "Gestión y administración de servicios hosting, incluyendo configuración de servidores, mantenimiento de sitios web, monitoreo de rendimiento y resolución de problemas técnicos.", 
+    description3:
+      " Análisis y optimización de procesos operativos, identificando oportunidades de mejora y proponiendo soluciones eficientes para aumentar la eficacia y eficiencia de las operaciones, aplicando estas mejoras en proyectos internos y externos.", 
+      link: "#",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 ml-3">
+   {
+      EXPERIENCE.map( 
+         experience =>(
+            <li class="mb-10 ms-4">
+               <ExperienceItem {...experience} />
+            </li>
+         )
+       )
+   }
+  
+</ol>
